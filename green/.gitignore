@@ -1,0 +1,8 @@
+# Archivos compilados por Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Migraciones innecesarias (excepto __init__.py si lo necesitas)
+**/migrations/*.py
+!**/migrations/__init__.py
