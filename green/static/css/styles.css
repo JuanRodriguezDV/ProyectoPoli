@@ -1,0 +1,28 @@
+/* Fuente */
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Botones personalizados */
+.btn-success {
+  background-color: #2d8a45;
+  border-color: #2d8a45;
+}
+
+.btn-success:hover {
+  background-color: #23733a;
+  border-color: #23733a;
+}
+
+/* Bordes redondeados más suaves */
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+
+/* Tarjetas */
+.card {
+  border-radius: 1rem;
+}
+.card img {
+  object-fit: contain;
+}
