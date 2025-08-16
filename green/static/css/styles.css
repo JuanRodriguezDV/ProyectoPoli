@@ -1,9 +1,7 @@
-/* Fuente */
 * {
   font-family: 'Poppins', sans-serif;
 }
 
-/* Botones personalizados */
 .btn-success {
   background-color: #2d8a45;
   border-color: #2d8a45;
@@ -14,15 +12,84 @@
   border-color: #23733a;
 }
 
-/* Bordes redondeados más suaves */
 .rounded-4 {
   border-radius: 1rem !important;
 }
 
-/* Tarjetas */
 .card {
   border-radius: 1rem;
 }
 .card img {
   object-fit: contain;
+}
+
+.footer-grid { 
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.site-footer { 
+  border-top: 1px solid #e9ecef;
+}
+
+.footer-top {
+  background: #fff; 
+}
+
+.footer-bottom {
+  background: #000;
+  color: #fff;
+}
+
+.footer-title {
+  font-weight: 600;
+}
+
+.site-footer .social {
+  color: #222;
+  text-decoration: none;
+}
+
+.site-footer .social:hover {
+  color: #2d8a45;
+}
+
+:root{
+  --brand: #2d8a45;
+  --nav-gray: #B6BDC5;
+  --brand-text: #0f0f0f;
+}
+
+
+.navbar .navbar-brand{
+  color: var(--brand-text) !important;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.navbar .nav-link{
+  color: var(--nav-gray) !important;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-decoration: none;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active{
+  color: var(--brand) !important;
+}
+
+.navbar .btn-success{
+  background-color: #2d8a45;
+  border-color: #2d8a45;
+  font-weight: 600;
+  border-radius: .6rem;
+  padding: .45rem 1rem;
+}
+
+.navbar .btn-success:hover{
+  background-color: #23733a;
+  border-color: #23733a;
 }
