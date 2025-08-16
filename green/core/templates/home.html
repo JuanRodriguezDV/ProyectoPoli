@@ -1,6 +1,144 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
-  <h1 class="text-center text-info">Welcome to the Home Page</h1>
-  <p>This is the main content area.</p>
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+  <div class="container py-2">
+    <a class="navbar-brand fw-bold text-success" href="#">GREEN</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="#residuos">¿Qué residuos recibimos?</a></li>
+        <li class="nav-item"><a class="nav-link" href="#recompensas">Recompensas</a></li>
+      </ul>
+      <a href="#" class="btn btn-success">Ingresar</a>
+    </div>
+  </div>
+</nav>
+
+<section id="nosotros" class="py-5">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold">¡Tu aporte al planeta empieza desde casa!</h1>
+          <p class="mt-3 text-secondary">
+            Separa tus residuos, solicita su recolección y contribuye a una gestión ambiental más eficiente y sostenible.
+          </p>
+          <a href="#residuos" class="btn btn-success btn-lg mt-2">Empezar</a>
+        </div>
+        <div class="col-lg-6 text-center">
+          <img src="static/img/svg/hero.svg" class="img-fluid" alt="Ilustración">
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="py-5 bg-light border-top border-bottom">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">¿Cómo funciona GREENED?</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm text-center">
+            <img src="static/img/svg/step1.svg" class="card-img-top p-4" alt="">
+            <div class="card-body">
+              <h5 class="card-title">1. Separa tus residuos</h5>
+              <p class="text-secondary small">Clasifica correctamente tus residuos en orgánicos, inorgánicos y peligrosos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm text-center">
+            <img src="static/img/svg/step2.svg" class="card-img-top p-4" alt="">
+            <div class="card-body">
+              <h5 class="card-title">2. Programa la recolección</h5>
+              <p class="text-secondary small">Registra una solicitud desde el sistema y selecciona la fecha disponible.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm text-center">
+            <img src="static/img/svg/step3.svg" class="card-img-top p-4" alt="">
+            <div class="card-body">
+              <h5 class="card-title">3. Gana puntos</h5>
+              <p class="text-secondary small">Cada recolección te suma puntos que puedes canjear por recompensas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="residuos" class="py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">¿Qué residuos recibimos?</h2>
+      <div class="row g-5 align-items-center mb-4">
+        <div class="col-md-6"><img src="static/img/inorganicos.jpg" class="img-fluid rounded-4 shadow-sm" alt=""></div>
+        <div class="col-md-6">
+          <h4 class="fw-bold">Inorgánicos</h4>
+          <p class="text-secondary">Plásticos, cartón, vidrio y metales. ¡Límpialos y dales otra vida!</p>
+        </div>
+      </div>
+      <div class="row g-5 align-items-center flex-md-row-reverse mb-4">
+        <div class="col-md-6"><img src="static/img/organicos.jpg" class="img-fluid rounded-4 shadow-sm" alt=""></div>
+        <div class="col-md-6">
+          <h4 class="fw-bold">Orgánicos</h4>
+          <p class="text-secondary">Residuos de alimentos y vegetales. ¡Van directo al compost!</p>
+        </div>
+      </div>
+      <div class="row g-5 align-items-center">
+        <div class="col-md-6"><img src="static/img/peligrosos.jpg" class="img-fluid rounded-4 shadow-sm" alt=""></div>
+        <div class="col-md-6">
+          <h4 class="fw-bold">Peligrosos</h4>
+          <p class="text-secondary">Pilas, aceites y productos tóxicos. ¡Separarlos es vital para el ambiente!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="recompensas" class="py-5 bg-light border-top">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">Gana recompensas por tu compromiso</h2>
+      <p class="text-center text-secondary mb-5">
+        Cada vez que cumplas con una recolección adecuada, acumulas puntos. ¡Cámbialos por beneficios en tiendas o productos sostenibles!
+      </p>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm text-center">
+            <img src="static/img/svg/reward1.svg" class="card-img-top p-4" alt="">
+            <div class="card-body">
+              <h6 class="fw-bold">1. Descuentos</h6>
+              <p class="small text-secondary">Canjea tus puntos por descuentos en productos sostenibles o aliados del sistema.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm text-center">
+            <img src="static/img/svg/reward2.svg" class="card-img-top p-4" alt="">
+            <div class="card-body">
+              <h6 class="fw-bold">2. Accesorios</h6>
+              <p class="small text-secondary">Redime puntos por botellas, bolsas reutilizables y otros artículos ecológicos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm text-center">
+            <img src="static/img/svg/reward3.svg" class="card-img-top p-4" alt="">
+            <div class="card-body">
+              <h6 class="fw-bold">3. Sorteos</h6>
+              <p class="small text-secondary">Cada recolección válida suma puntos a tu cuenta. ¡Entre más participas, más ganas!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="mt-5 pt-5 border-top">
+    <div class="container text-center">
+      <div class="row g-4">
+        <div class="col-md-4"><p><strong>Administrado por</strong><br>GREEN</p></div>
+        <div class="col-md-4"><p><strong>Redes sociales</strong><br>🐦 📸 🧵</p></div>
+        <div class="col-md-4"><p><strong>Slogan</strong><br>#ReciclarEsGanar</p></div>
+      </div>
+      <p class="small text-secondary mt-3">© 2025 GREEN. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 {% endblock %}
