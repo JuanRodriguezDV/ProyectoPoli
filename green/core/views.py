@@ -8,3 +8,7 @@ def home (request):
 #inicio de sesion
 def signin (request):
     return render(request, 'signin.html')
+
+#crear cuenta
+def signup (request):
+    return render(request, 'signup.html')

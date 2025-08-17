@@ -120,3 +120,25 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   overflow: hidden;
 }
+/*Estilo  Formularios*/
+.card-custom {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+.container .form-section {
+  padding: 2rem;
+}
+.illustration {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.illustration img {
+  max-width: 80%;
+  height: auto;
+}
+.form-label {
+  font-weight: bold;
+}
