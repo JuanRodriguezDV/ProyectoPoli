@@ -1,0 +1,29 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+  <div class="container login-section">
+    <div class="row login-card w-100" style="max-width: 900px;">
+      <!-- Formulario -->
+      <div class="col-md-6 p-5">
+        <h2 class="mb-4 text-center">Inicio de sesión</h2>
+        <form method="post">
+          <div class="mb-3 position-relative">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div data-mdb-input-init class="form-outline mb-4">
+                <label for="email" class="form-label">Contraseña</label>
+                  <input type="password" id="password" class="form-control" name="password" required/>
+              </div>
+          <button type="submit" class="btn btn-success w-100 mb-3">Ingresar</button>
+          <p class="text-muted text-center">¿No tienes cuenta? <a href="#" class="text-success fw-bold">¡Crea una!</a></p>
+        </form>
+      </div>
+      <!-- Imagen -->
+      <div class="col-md-6 login-image d-none d-md-block">
+         <img src="/static/img/svg/login.svg" alt="Reciclaje" class="img-fluid h-100 w-100" style="object-fit: cover;">
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

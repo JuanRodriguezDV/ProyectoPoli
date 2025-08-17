@@ -4,3 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 def home (request):
     return render(request, 'home.html')
+
+#inicio de sesion
+def signin (request):
+    return render(request, 'signin.html')
