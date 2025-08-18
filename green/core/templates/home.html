@@ -3,8 +3,8 @@
 {% block content %}
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg bg-white sticky-top">
-    <div class="container py-3">
-        <a class="navbar-brand" href="#">GREEN</a>
+    <div class="container py-3 plus-jakarta-sans">
+        <a class="navbar-brand" style="font-weight: 800;" href="#">GREEN</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -18,7 +18,7 @@
 
         {% if usuario_actual %}
         <div class="d-flex align-items-center gap-3">
-            <span class="fw-semibold">Hola, {{ usuario_actual.nombre }}</span>
+            <span style="font-weight: 700;">Hola, {{ usuario_actual.nombre }}</span>
             <button type="button" class="btn btn-icon p-0" data-bs-toggle="modal" data-bs-target="#logoutModal" aria-label="Cerrar sesión">
                 <i class="bi bi-box-arrow-right"></i>
             </button>
@@ -33,12 +33,12 @@
     <section id="nosotros" class="py-5">
         <div class="container">
             <div class="row align-items-center gy-4">
-                <div class="col-lg-6">
-                    <h1 class="display-5 fw-bold">¡Tu aporte al planeta empieza desde casa!</h1>
-                    <p class="mt-3 text-secondary">
+                <div class="col-lg-6 plus-jakarta-sans">
+                    <h1 class="display-5 poppins-medium">¡Tu aporte al planeta empieza desde casa!</h1>
+                    <p class="mt-3 text-secondary plus-jakarta-sans">
                         Separa tus residuos, solicita su recolección y contribuye a una gestión ambiental más eficiente y sostenible.
                     </p>
-                    <a href="{% url 'request-collection' %}" class="btn btn-success btn-lg mt-2">Empezar</a>
+                    <a href="{% url 'request-collection' %}" class="btn btn-success btn-lg mt-2 plus-jakarta-sans" style="font-weight: 700;">Empezar</a>
                 </div>
                 <div class="col-lg-6 text-center">
                     <img src="static/img/svg/hero.svg" class="img-fluid" alt="Ilustración">
@@ -49,14 +49,14 @@
     <!-- CÓMO FUNCIONA -->
     <section class="py-5 bg-white">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5">¿Cómo funciona GREENED?</h2>
+            <h2 class="text-center poppins-medium mb-5">¿Cómo funciona GREEN?</h2>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card h-100 shadow-lg text-center">
                         <img src="static/img/svg/step1.svg" class="card-img-top p-4" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">1. Separa tus residuos</h5>
-                            <p class="text-secondary small">Clasifica correctamente tus residuos en orgánicos, inorgánicos y peligrosos.</p>
+                            <h5 class="card-title poppins-medium">1. Separa tus residuos</h5>
+                            <p class="text-secondary small plus-jakarta-sans">Clasifica correctamente tus residuos en orgánicos, inorgánicos y peligrosos.</p>
                         </div>
                     </div>
                 </div>
@@ -64,8 +64,8 @@
                     <div class="card h-100 shadow-lg text-center">
                         <img src="static/img/svg/step2.svg" class="card-img-top p-4" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">2. Programa la recolección</h5>
-                            <p class="text-secondary small">Registra una solicitud desde el sistema y selecciona la fecha disponible.</p>
+                            <h5 class="card-title poppins-medium">2. Programa la recolección</h5>
+                            <p class="text-secondary small plus-jakarta-sans">Registra una solicitud desde el sistema y selecciona la fecha disponible.</p>
                         </div>
                     </div>
                 </div>
@@ -73,8 +73,8 @@
                     <div class="card h-100 shadow-lg text-center">
                         <img src="static/img/svg/step3.svg" class="card-img-top p-4" alt="">
                         <div class="card-body">
-                            <h5 class="card-title">3. Gana puntos</h5>
-                            <p class="text-secondary small">Cada recolección te suma puntos que puedes canjear por recompensas.</p>
+                            <h5 class="card-title poppins-medium">3. Gana puntos</h5>
+                            <p class="text-secondary small plus-jakarta-sans">Cada recolección te suma puntos que puedes canjear por recompensas.</p>
                         </div>
                     </div>
                 </div>
@@ -84,14 +84,14 @@
     <!-- RESIDUOS -->
     <section id="residuos" class="py-5">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5">¿Qué residuos recibimos?</h2>
+            <h2 class="text-center poppins-medium mb-5">¿Qué residuos recibimos?</h2>
             <div class="row g-5 align-items-center mb-4">
                 <div class="col-md-6">
                     <img src="static/img/inorganicos.jpg" class="img-fluid rounded-4 shadow-lg" alt="">
                 </div>
                 <div class="col-md-6">
-                    <h4 class="fw-bold">Inorgánicos</h4>
-                    <p class="text-secondary">Plásticos, cartón, vidrio y metales. ¡Límpialos y dales otra vida!</p>
+                    <h4 class="poppins-medium">Inorgánicos</h4>
+                    <p class="text-secondary plus-jakarta-sans">Plásticos, cartón, vidrio y metales. ¡Límpialos y dales otra vida!</p>
                 </div>
             </div>
             <div class="row g-5 align-items-center flex-md-row-reverse mb-4">
@@ -99,8 +99,8 @@
                     <img src="static/img/organicos.jpg" class="img-fluid rounded-4 shadow-lg" alt="">
                 </div>
                 <div class="col-md-6">
-                    <h4 class="fw-bold">Orgánicos</h4>
-                    <p class="text-secondary">Residuos de alimentos y vegetales. ¡Van directo al compost!</p>
+                    <h4 class="poppins-medium">Orgánicos</h4>
+                    <p class="text-secondary plus-jakarta-sans">Residuos de alimentos y vegetales. ¡Van directo al compost!</p>
                 </div>
             </div>
             <div class="row g-5 align-items-center">
@@ -108,8 +108,8 @@
                     <img src="static/img/peligrosos.jpg" class="img-fluid rounded-4 shadow-lg" alt="">
                 </div>
                 <div class="col-md-6">
-                    <h4 class="fw-bold">Peligrosos</h4>
-                    <p class="text-secondary">Pilas, aceites y productos tóxicos. ¡Separarlos es vital para el ambiente!</p>
+                    <h4 class="poppins-medium">Peligrosos</h4>
+                    <p class="text-secondary plus-jakarta-sans">Pilas, aceites y productos tóxicos. ¡Separarlos es vital para el ambiente!</p>
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
     <!-- RECOMPENSAS -->
     <section id="recompensas" class="py-5 bg-white">
         <div class="container">
-            <h2 class="text-center fw-bold mb-5">Gana recompensas por tu compromiso</h2>
+            <h2 class="text-center poppins-medium mb-5">Gana recompensas por tu compromiso</h2>
             <p class="text-center text-secondary mb-5">
                 Cada vez que cumplas con una recolección adecuada, acumulas puntos. ¡Cámbialos por beneficios en tiendas o productos sostenibles!
             </p>
@@ -126,8 +126,8 @@
                     <div class="card h-100 shadow-lg text-center">
                         <img src="static/img/svg/reward1.svg" class="card-img-top p-4" alt="">
                         <div class="card-body">
-                            <h6 class="fw-bold">1. Descuentos</h6>
-                            <p class="small text-secondary">Canjea tus puntos por descuentos en productos sostenibles o aliados del sistema.</p>
+                            <h5 class="poppins-medium">1. Descuentos</h5>
+                            <p class="small text-secondary plus-jakarta-sans">Canjea tus puntos por descuentos en productos sostenibles o aliados del sistema.</p>
                         </div>
                     </div>
                 </div>
@@ -135,8 +135,8 @@
                     <div class="card h-100 shadow-lg text-center">
                         <img src="static/img/svg/reward2.svg" class="card-img-top p-4" alt="">
                         <div class="card-body">
-                            <h6 class="fw-bold">2. Accesorios</h6>
-                            <p class="small text-secondary">Redime puntos por botellas, bolsas reutilizables y otros artículos ecológicos.</p>
+                            <h5 class="poppins-medium">2. Accesorios</h5>
+                            <p class="small text-secondary plus-jakarta-sans">Redime puntos por botellas, bolsas reutilizables y otros artículos ecológicos.</p>
                         </div>
                     </div>
                 </div>
@@ -144,8 +144,8 @@
                     <div class="card h-100 shadow-lg text-center">
                         <img src="static/img/svg/reward3.svg" class="card-img-top p-4" alt="">
                         <div class="card-body">
-                            <h6 class="fw-bold">3. Sorteos</h6>
-                            <p class="small text-secondary">Cada recolección válida suma puntos a tu cuenta. ¡Entre más participas, más ganas!</p>
+                            <h5 class="poppins-medium">3. Sorteos</h5>
+                            <p class="small text-secondary plus-jakarta-sans">Cada recolección válida suma puntos a tu cuenta. ¡Entre más participas, más ganas!</p>
                         </div>
                     </div>
                 </div>
@@ -187,13 +187,13 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 id="logoutModalLabel" class="modal-title">Confirmar cierre de sesión</h5>
+                <h5 id="logoutModalLabel" class="modal-title poppins-medium">Confirmar cierre de sesión</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body plus-jakarta-sans">
                 ¿Seguro que quieres cerrar sesión?
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer poppins-medium">
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <form method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
