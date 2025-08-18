@@ -12,3 +12,7 @@ def signin (request):
 #crear cuenta
 def signup (request):
     return render(request, 'signup.html')
+
+#Solucitud de recoleccion de residuos
+def requestcollection (requestcollection):
+    return render(requestcollection, 'requestcollection.html')

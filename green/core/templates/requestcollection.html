@@ -1,0 +1,79 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="card card-custom">
+    <div class="row g-0">
+      <!--Formulario -->
+      <div class="col-lg-6">
+        <div class="form-section" style="padding: 2rem;">
+            <h2 class="mb-4 text-center">Solicite una recolección de residuos</h2>
+            <p class="lead">
+                Llena el siguiente formulario para programar la recolección
+            </p>
+          <form method="post">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="tiporesiduo" class="form-label">Tipo de residuo*</label>
+                <select class="form-select" id="tiporesiduo" name="tiporesiduo" required>
+                    <option selected disabled value="">Seleccione...</option>
+                    <option>Orgánico</option>
+                    <option>Inorgánico</option>
+                    <option>Peligroso</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="direccion" name="direccion">
+              </div>
+              <div class="col-md-6">
+                <label for="subcategoria" class="form-label">Subcategoria*</label>
+                <select class="form-select" id="subcategoria" name="subcategoria" required>
+                    <option selected disabled value="">Seleccione...</option>
+                    <option>Fracción orgánica</option>
+                    <option>Fracción vegetal</option>
+                    <option>Residuos de poda</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="fechaestimada" class="form-label">Fecha Estimada*</label>
+                <input type="date" class="form-control" id="fechaestimada" name="fechaestimada" required>
+              </div>
+              <div class="col-md-6">
+                <label for="cantidadkilos" class="form-label">Cantidad estimada en kilogramos</label>
+                <input type="number" class="form-control" id="cantidadkilos" name="cantidadkilos">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label d-block">Modalidad de recolección*</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="modalidad" id="programada" value="programada" required>
+                  <label class="form-check-label" for="programada">Programada</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="modalidad" id="bajodemanda" value="bajodemanda" required>
+                  <label class="form-check-label" for="bajodemanda">Bajo demanda</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="comentarios" class="form-label">Comentarios adicionales</label>
+                <textarea class="form-control" id="comentarios" rows="3"></textarea>
+              </div>
+              <div class="col-12 d-grid">
+                <button type="submit" class="btn btn-success">Solicitar recolección</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--Imagen -->
+      <div class="col-lg-6">
+        <div class="illustration h-100">
+          <img src="/static/img/svg/step2.svg">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
