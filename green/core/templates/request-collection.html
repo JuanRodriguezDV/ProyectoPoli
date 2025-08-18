@@ -11,7 +11,8 @@
             <p class="lead">
                 Llena el siguiente formulario para programar la recolección
             </p>
-          <form method="post">
+          <form method="post" action="request-collection">
+            {% csrf_token %}
             <div class="row g-3">
               <div class="col-md-6">
                 <label for="tiporesiduo" class="form-label">Tipo de residuo*</label>
@@ -50,8 +51,8 @@
                   <label class="form-check-label" for="programada">Programada</label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="modalidad" id="bajodemanda" value="bajodemanda" required>
-                  <label class="form-check-label" for="bajodemanda">Bajo demanda</label>
+                  <input class="form-check-input" type="radio" name="modalidad" id="bajo_de_manda" value="bajo_de_manda" required>
+                  <label class="form-check-label" for="bajo_de_manda">Bajo demanda</label>
                 </div>
               </div>
               <div class="mb-3">

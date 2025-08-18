@@ -24,5 +24,6 @@ urlpatterns = [
     path('signup', views.crear_cuenta, name='signup'),
     path('logout/', views.cerrar_sesion, name='logout'),
     path('request-collection', views.programar_recoleccion, name='request-collection'),
+    path('history', views.historial_recolecciones_usuario, name='history'),
     path('admin/', admin.site.urls),
 ]
