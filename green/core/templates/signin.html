@@ -6,13 +6,6 @@
       <!-- Formulario -->
       <div class="col-md-6 p-5">
         <h2 class="mb-4 text-center poppins-medium">Inicio de sesión</h2>
-         {% if messages %}
-          {% for message in messages %}
-            <div class="alert alert-danger" role="alert">
-              {{ message }}
-            </div>
-          {% endfor %}
-        {% endif %}
         <form method="post" action="signin" class="plus-jakarta-sans">
           {% csrf_token %}
           <div class="mb-3 position-relative">
@@ -34,7 +27,7 @@
       </div>
       <!-- Imagen -->
       <div class="col-md-6 login-image d-none d-md-block">
-         <img src="/static/img/svg/login.svg" alt="Reciclaje" class="img-fluid h-100 w-100" style="object-fit: cover;">
+        <img src="/static/img/svg/login.svg" alt="Reciclaje" class="img-fluid h-100 w-100" style="object-fit: cover;">
       </div>
     </div>
   </div>

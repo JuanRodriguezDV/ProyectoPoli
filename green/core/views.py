@@ -31,12 +31,26 @@ MODALIDAD_MAP = {
 }
 
 # Create your views here.
-def pagina_de_inicio (request):
+def pagina_de_inicio(request):
+    """
+    Vista de la página de inicio.
+    Parámetros:
+        request (HttpRequest): La solicitud HTTP entrante.
+    Retorna:
+        HttpResponse: Renderiza la plantilla 'home.html'.
+    """
     return render(request, 'home.html')
 
 @csrf_protect
 @require_http_methods(["GET", "POST"])
 def iniciar_sesion(request):
+    """
+    Vista para iniciar sesión de usuario.
+    Parámetros:
+        request (HttpRequest): La solicitud HTTP entrante.
+    Retorna:
+        HttpResponse: Renderiza 'signin.html' o redirige a la página de inicio si el login es exitoso.
+    """
     if request.method == 'POST':
         correo = (request.POST.get('correo') or '').strip().lower()
         contrasena = request.POST.get('contrasena') or ''
@@ -56,7 +70,6 @@ def iniciar_sesion(request):
             messages.error(request, 'Usuario o contraseña incorrectos.')
             return render(request, 'signin.html', {'correo': correo})
 
-        # Rotar la sesión para mitigar fijación
         request.session.flush()
         request.session.cycle_key()
 
@@ -72,6 +85,13 @@ def iniciar_sesion(request):
 @csrf_protect
 @require_http_methods(["GET", "POST"])
 def crear_cuenta(request):
+    """
+    Vista para crear una nueva cuenta de usuario.
+    Parámetros:
+        request (HttpRequest): La solicitud HTTP entrante.
+    Retorna:
+        HttpResponse: Renderiza 'signup.html' o redirige a la página de inicio si el registro es exitoso.
+    """
     if request.method == 'POST':
         contrasena = request.POST.get('contrasena') or ''
         confirmar  = request.POST.get('confirmar_contrasena') or ''
@@ -112,14 +132,24 @@ def crear_cuenta(request):
 
 @require_POST
 def cerrar_sesion(request):
+    """
+    Vista para cerrar la sesión del usuario actual.
+    Parámetros:
+        request (HttpRequest): La solicitud HTTP entrante.
+    Retorna:
+        HttpResponse: Redirige a la página de inicio tras cerrar sesión.
+    """
     request.session.flush()
     messages.info(request, 'Sesión cerrada.')
     return redirect('home')
 
 def _get_current_usuario(request):
     """
-    Intenta usar tu modelo Usuario guardado en sesión (como en tu proyecto),
-    y si no, usa request.user (auth).
+    Obtiene el usuario actualmente autenticado desde la sesión o el usuario de Django.
+    Parámetros:
+        request (HttpRequest): La solicitud HTTP entrante.
+    Retorna:
+        Usuario o None: El usuario autenticado o None si no existe.
     """
     usuario_id = request.session.get("usuario_id")
     if usuario_id:
@@ -127,7 +157,6 @@ def _get_current_usuario(request):
             return Usuario.objects.get(id=usuario_id)
         except Usuario.DoesNotExist:
             pass
-    # fallback si usas el user de Django
     try:
         return Usuario.objects.get(correo=request.user.email)  # ajusta si tu campo es distinto
     except Exception:
@@ -136,9 +165,15 @@ def _get_current_usuario(request):
 @login_required
 @require_http_methods(["GET", "POST"])
 def programar_recoleccion(request):
+    """
+    Vista para programar una nueva recolección de residuos.
+    Parámetros:
+        request (HttpRequest): La solicitud HTTP entrante.
+    Retorna:
+        HttpResponse: Renderiza 'request-collection.html' o redirige a 'history' si la creación es exitosa.
+    """
     if request.method == "POST":
         try:
-            # 1) Normaliza entradas de formulario
             tipo_txt = (request.POST.get("tiporesiduo") or "").strip().lower()
             subcat_txt = (request.POST.get("subcategoria") or "").strip().lower()
             direccion = (request.POST.get("direccion") or "").strip()
@@ -147,7 +182,6 @@ def programar_recoleccion(request):
             modalidad_txt = (request.POST.get("modalidad") or "").strip().lower()
             comentario = (request.POST.get("comentarios") or "").strip()
 
-            # 2) Mapear a codes de choices
             tipo = TIPO_MAP.get(tipo_txt)
             subcategoria = SUBCAT_MAP.get(subcat_txt)
             modalidad = MODALIDAD_MAP.get(modalidad_txt)
@@ -156,14 +190,9 @@ def programar_recoleccion(request):
                 messages.error(request, "Faltan datos o hay un valor inválido en el formulario.")
                 return render(request, "request-collection.html")
 
-            # 3) Usuario logueado
             usuario_id = request.session.get("usuario_id")
             usuario = Usuario.objects.get(id=usuario_id)
-
-            # 4) Usa la Fábrica para obtener el servicio correcto
             service = RecoleccionFactory.for_tipo(tipo)
-
-            # 5) Crea la recolección con la estrategia concreta
             entrada = RecoleccionInput(
                 tipo_residuo=tipo,
                 subcategoria=subcategoria,
@@ -176,10 +205,7 @@ def programar_recoleccion(request):
             )
             recoleccion = service.crear_recoleccion(entrada)
 
-            messages.success(
-                request,
-                f"Recolección #{recoleccion.id} creada y asignada a {recoleccion.empresa.nombre}."
-            )
+            messages.success(request, f"Recolección #{recoleccion.id} creada y asignada a {recoleccion.empresa.nombre}.")
             return redirect("history")
 
         except IntegrityError:
@@ -191,9 +217,15 @@ def programar_recoleccion(request):
 
 @login_required
 def historial_recolecciones_usuario(request):
+    """
+    Vista para mostrar el historial de recolecciones del usuario autenticado.
+    Parámetros:
+        request (HttpRequest): La solicitud HTTP entrante.
+    Retorna:
+        HttpResponse: Renderiza 'history_user.html' con la lista paginada de recolecciones.
+    """
     usuario = _get_current_usuario(request)
     if not usuario:
-        # Si algo falla, muestra vacío (o redirige a login/perfil)
         return render(request, "historial/historial_usuario.html", {
             "page_obj": [],
             "q": "",
@@ -208,7 +240,6 @@ def historial_recolecciones_usuario(request):
         .filter(usuario=usuario)
     )
 
-    # Búsqueda simple (ajusta campos a gusto)
     if q:
         qs = qs.filter(
             Q(subcategoria__icontains=q)
@@ -217,14 +248,11 @@ def historial_recolecciones_usuario(request):
             | Q(empresa__nombre__icontains=q)
         )
 
-    # Ordenamiento
     if order == "recientes":
         qs = qs.order_by("-fecha_estimada", "-id")
     elif order == "antiguos":
         qs = qs.order_by("fecha_estimada", "id")
     elif order == "puntos_desc":
-        # Si tienes campo puntos en el modelo, cámbialo por el nombre real.
-        # Si no tienes, te muestro cómo estimarlo en el template.
         qs = qs.order_by("-puntos_acumulados", "-fecha_estimada") if hasattr(Recoleccion, "puntos_acumulados") else qs.order_by("-fecha_estimada", "-id")
     elif order == "puntos_asc":
         qs = qs.order_by("puntos_acumulados", "-fecha_estimada") if hasattr(Recoleccion, "puntos_acumulados") else qs.order_by("-fecha_estimada", "-id")
