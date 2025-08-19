@@ -1,0 +1,167 @@
+.plus-jakarta-sans {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.btn-success {
+  background-color: #2d8a45;
+  border-color: #2d8a45;
+}
+
+.btn-success:hover {
+  background-color: #23733a;
+  border-color: #23733a;
+}
+
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+
+.card {
+  border-radius: 1rem;
+}
+.card img {
+  object-fit: contain;
+}
+
+.footer-grid { 
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.site-footer { 
+  border-top: 1px solid #e9ecef;
+}
+
+.footer-top {
+  background: #fff; 
+}
+
+.footer-bottom {
+  background: #000;
+  color: #fff;
+}
+
+.footer-title {
+  font-weight: 600;
+}
+
+.site-footer .social {
+  color: #222;
+  text-decoration: none;
+}
+
+.site-footer .social:hover {
+  color: #2d8a45;
+}
+
+:root{
+  --brand: #2d8a45;
+  --nav-gray: #B6BDC5;
+  --brand-text: #0f0f0f;
+}
+
+
+.navbar .navbar-brand{
+  color: var(--brand-text) !important;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.navbar .nav-link{
+  color: var(--nav-gray) !important;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-decoration: none;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active{
+  color: var(--brand) !important;
+}
+
+.navbar .btn-success{
+  background-color: #2d8a45;
+  border-color: #2d8a45;
+  font-weight: 600;
+  border-radius: .6rem;
+  padding: .45rem 1rem;
+}
+
+.navbar .btn-success:hover{
+  background-color: #23733a;
+  border-color: #23733a;
+}
+
+.navbar-toggler {
+  border-color: #2d8a45;
+}
+.navbar-toggler:focus {
+ box-shadow: 0 0 0 .2rem rgba(45,138,69,.25);
+}
+
+.navbar-toggler-icon {
+  width: 1.5em; height: 1.5em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(45,138,69,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Estilo Login*/
+.login-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.login-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/*Estilo  Formularios*/
+.card-custom {
+  border-radius: 0.5rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.container .form-section {
+  padding: 2rem;
+}
+
+.illustration {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.illustration img {
+  max-width: 80%;
+  height: auto;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.toggle-pass {
+  padding: .375rem .6rem;
+}
+
+.toggle-pass i {
+  pointer-events: none;
+}
