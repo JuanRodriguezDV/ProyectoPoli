@@ -246,14 +246,48 @@ def historial_recolecciones_usuario(request):
 
 
 def export_solicitudes_csv(request):
+    usuario = _get_current_usuario(request)
+    if not usuario:
+        return HttpResponse("No autorizado", status=401)
+
+    q = (request.GET.get("q") or "").strip()
+    order = (request.GET.get("order") or "recientes").lower()
+
+    qs = Recoleccion.objects.filter(usuario=usuario)
+
+    if q:
+        qs = qs.filter(
+            Q(subcategoria__icontains=q)
+            | Q(comentario__icontains=q)
+            | Q(direccion__icontains=q)
+            | Q(empresa__nombre__icontains=q)
+        )
+
+    #Ordenamiento
+    if order == "recientes":
+        qs = qs.order_by("-fecha_estimada", "-id")
+    elif order == "antiguos":
+        qs = qs.order_by("fecha_estimada", "id")
+    elif order == "puntos_desc":
+        qs = qs.order_by("-puntos_acumulados", "-fecha_estimada") if hasattr(Recoleccion, "puntos_acumulados") else qs.order_by("-fecha_estimada", "-id")
+    elif order == "puntos_asc":
+        qs = qs.order_by("puntos_acumulados", "-fecha_estimada") if hasattr(Recoleccion, "puntos_acumulados") else qs.order_by("-fecha_estimada", "-id")
+    else:
+        qs = qs.order_by("-fecha_estimada", "-id")
+
+    if not qs.exists():
+        messages.warning(request, "No hay recolecciones para exportar.")
+        return redirect("history")
+    
+    
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="solicitudes.csv"'
 
     writer = csv.writer(response)
     writer.writerow(['Fecha Recolección', 'Tipo de Residuo', 'Subcategoría', 'Peso', 'Puntos acumulados', 'Modalidad'])
 
-    for r in Recoleccion.objects.all():
-        puntos = r.cantidad_kg if r.cantidad_kg else 0
+    for r in qs:
+        puntos = r.puntos_acumulados if hasattr(r, "puntos_acumulados") else (r.cantidad_kg if r.cantidad_kg else 0)
         writer.writerow([
             r.fecha_estimada,
             r.get_tipo_residuo_display(),
