@@ -25,5 +25,6 @@ urlpatterns = [
     path('logout/', views.cerrar_sesion, name='logout'),
     path('request-collection', views.programar_recoleccion, name='request-collection'),
     path('history', views.historial_recolecciones_usuario, name='history'),
+    path('export-csv/', views.export_solicitudes_csv, name='export-csv'),
     path('admin/', admin.site.urls),
 ]

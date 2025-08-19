@@ -5,6 +5,11 @@
   <div class="card border-0 shadow-sm rounded-4">
     <div class="card-body p-4">
       <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
+        <div class="d-flex w-100 align-items-center justify-content-start mb-3">
+          <a href="{% url 'export-csv' %}" class="btn btn-outline-success mb-3">Exportar a CSV</a>
+        </div>
+      </div>
+      <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3">
         <div class="d-flex w-100 align-items-center justify-content-end mb-3">
           <a href="{% url 'request-collection' %}" class="btn btn-success btn-lg mt-2 plus-jakarta-sans" style="font-weight: 700;">Solicitar recolección</a>
         </div>

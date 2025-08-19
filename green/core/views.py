@@ -8,6 +8,8 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.http import require_http_methods, require_POST
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.http import HttpResponse
+import csv
 
 from .decorators import login_required
 from .models import Recoleccion, Usuario
@@ -241,3 +243,23 @@ def historial_recolecciones_usuario(request):
         "order": order,
     }
     return render(request, "history_user.html", ctx)
+
+
+def export_solicitudes_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="solicitudes.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['Fecha Recolección', 'Tipo de Residuo', 'Subcategoría', 'Peso', 'Puntos acumulados', 'Modalidad'])
+
+    for r in Recoleccion.objects.all():
+        puntos = r.cantidad_kg if r.cantidad_kg else 0
+        writer.writerow([
+            r.fecha_estimada,
+            r.get_tipo_residuo_display(),
+            r.get_subcategoria_display(),
+            r.cantidad_kg,
+            puntos,
+            r.get_modalidad_recoleccion_display()
+        ])
+    return response
