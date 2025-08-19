@@ -3,31 +3,31 @@
 {% block content %}
     <!--NAVBAR-->
     <nav class="navbar navbar-expand-lg bg-white sticky-top">
-    <div class="container py-3 plus-jakarta-sans">
-        <a class="navbar-brand" style="font-weight: 800;" href="#">GREEN</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav mx-auto gap-lg-4">
-            <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
-            <li class="nav-item"><a class="nav-link" href="#residuos">¿Qué residuos recibimos?</a></li>
-            <li class="nav-item"><a class="nav-link" href="#recompensas">Recompensas</a></li>
-        </ul>
-
-        {% if usuario_actual %}
-        <div class="d-flex align-items-center gap-3">
-            <span style="font-weight: 700;">Hola, {{ usuario_actual.nombre }}</span>
-            <button type="button" class="btn btn-icon p-0" data-bs-toggle="modal" data-bs-target="#logoutModal" aria-label="Cerrar sesión">
-                <i class="bi bi-box-arrow-right"></i>
+        <div class="container py-3 plus-jakarta-sans">
+            <a class="navbar-brand" style="font-weight: 800;" href="#">GREEN</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon"></span>
             </button>
+
+            <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav mx-auto gap-lg-4">
+                <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" href="#residuos">¿Qué residuos recibimos?</a></li>
+                <li class="nav-item"><a class="nav-link" href="#recompensas">Recompensas</a></li>
+            </ul>
+
+            {% if usuario_actual %}
+            <div class="d-flex align-items-center gap-3">
+                <span style="font-weight: 700;">Hola, {{ usuario_actual.nombre }}</span>
+                <button type="button" class="btn btn-icon p-0" data-bs-toggle="modal" data-bs-target="#logoutModal" aria-label="Cerrar sesión">
+                    <i class="bi bi-box-arrow-right"></i>
+                </button>
+            </div>
+            {% else %}
+            <a href="{% url 'signin' %}" class="btn btn-success">Ingresar</a>
+            {% endif %}
+            </div>
         </div>
-        {% else %}
-        <a href="{% url 'signin' %}" class="btn btn-success">Ingresar</a>
-        {% endif %}
-        </div>
-    </div>
     </nav>
     <!-- HERO -->
     <section id="nosotros" class="py-5">

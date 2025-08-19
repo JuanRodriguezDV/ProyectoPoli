@@ -19,7 +19,6 @@ class Usuario(models.Model):
 class EmpresaRecolectora(models.Model):
     nombre = models.CharField(max_length=100)
     direccion = models.CharField(max_length=255)
-    descripcion = models.TextField(blank=True)
 
 class Recoleccion(models.Model):
     TIPO_RESIDUO_CHOICES = [
