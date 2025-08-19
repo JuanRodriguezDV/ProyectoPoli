@@ -41,7 +41,13 @@
           <button class="btn btn-primary">Aplicar</button>
         </form>
       </div>
-
+      {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+              {{ message }}
+            </div>
+        {% endfor %}
+      {% endif %}
       <div class="table-responsive mt-4">
         <table class="table align-middle">
           <thead class="table-light">

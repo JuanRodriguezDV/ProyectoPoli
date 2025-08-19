@@ -8,6 +8,13 @@
       <div class="col-lg-6">
         <div class="form-section" style="padding: 2rem;">
           <h2 class="mb-4 text-center poppins-medium">Crea una cuenta</h2>
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
           <form method="post" class="plus-jakarta-sans" action="{% url 'signup' %}">
             {% csrf_token %}
             <div class="row g-3">
@@ -33,13 +40,9 @@
               </div>
               <div class="col-md-6">
                 <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento</label>
-                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" min="2007-12-31" required>
+                <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
               </div>
-              <div class="col-md-6">
-                <label for="direccion" class="form-label">Dirección</label>
-                <input type="text" class="form-control" placeholder="Ej: Calle 45 #12-35, Medellín" id="direccion" name="direccion" required>
-              </div>
-              <div class="col-md-6">
+                            <div class="col-md-6">
                 <label for="contrasena" class="form-label">Contraseña</label>
                 <div class="input-group">
                   <input type="password" class="form-control" placeholder="Ej: 4kuBu7uhM3dk1t" id="contrasena" name="contrasena"
@@ -60,6 +63,10 @@
                     <i class="bi bi-eye"></i>
                   </button>
                 </div>
+              </div>
+              <div class="col-md-6">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input type="text" class="form-control" placeholder="Ej: Calle 45 #12-35, Medellín" id="direccion" name="direccion" required>
               </div>
                 <div class="col-md-6">
                   <label class="form-label d-block">Seleccione su Género</label>

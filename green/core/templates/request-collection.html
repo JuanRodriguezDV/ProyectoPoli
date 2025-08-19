@@ -11,6 +11,13 @@
             <p class="lead">
                 Llena el siguiente formulario para programar la recolección
             </p>
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-danger" role="alert">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
           <form method="post" action="request-collection">
             {% csrf_token %}
             <div class="row g-3">

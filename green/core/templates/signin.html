@@ -6,6 +6,13 @@
       <!-- Formulario -->
       <div class="col-md-6 p-5">
         <h2 class="mb-4 text-center poppins-medium">Inicio de sesión</h2>
+         {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
         <form method="post" action="signin" class="plus-jakarta-sans">
           {% csrf_token %}
           <div class="mb-3 position-relative">
