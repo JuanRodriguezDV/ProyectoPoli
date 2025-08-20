@@ -1,0 +1,50 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+  <div class="container login-section">
+    <div class="row login-card w-100" style="max-width: 900px;">
+      <!-- Formulario -->
+      <div class="col-md-6 p-5">
+        <h2 class="mb-4 text-center poppins-medium">Inicio de sesión</h2>
+        <form method="post" action="signin" class="plus-jakarta-sans">
+          {% csrf_token %}
+          <div class="mb-3 position-relative">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" placeholder="Ej: anderson@example.com" id="correo" name="correo" required>
+          </div>
+          <div class="mb-3">
+            <label for="contrasena" class="form-label">Contraseña</label>
+            <div class="input-group">
+              <input type="password" class="form-control" placeholder="Ej: 4kuBu7uhM3dk1t" id="contrasena" name="contrasena" autocomplete="current-password" required>
+              <button type="button" class="btn btn-outline-success" id="togglePassword" aria-label="Mostrar u ocultar contraseña">
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success w-100 mb-3">Ingresar</button>
+          <p class="text-muted text-center">¿No tienes cuenta? <a href="signup" class="text-success fw-bold">¡Crea una!</a></p>
+        </form>
+      </div>
+      <!-- Imagen -->
+      <div class="col-md-6 login-image d-none d-md-block">
+        <img src="/static/img/svg/login.svg" alt="Reciclaje" class="img-fluid h-100 w-100" style="object-fit: cover;">
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('togglePassword');
+      const input = document.getElementById('contrasena');
+      if (!btn || !input) return;
+
+      btn.addEventListener('click', () => {
+        const show = input.type === 'password';
+        input.type = show ? 'text' : 'password';
+        const icon = btn.querySelector('i');
+        icon.classList.toggle('bi-eye', !show);
+        icon.classList.toggle('bi-eye-slash', show);
+        input.focus();
+      });
+    });
+  </script>
+{% endblock %}

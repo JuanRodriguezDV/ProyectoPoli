@@ -19,6 +19,11 @@ from django.urls import path
 from core import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.pagina_de_inicio, name='home'),
+    path('signin', views.iniciar_sesion, name='signin'),
+    path('signup', views.crear_cuenta, name='signup'),
+    path('logout/', views.cerrar_sesion, name='logout'),
+    path('request-collection', views.programar_recoleccion, name='request-collection'),
+    path('history', views.historial_recolecciones_usuario, name='history'),
     path('admin/', admin.site.urls),
 ]
